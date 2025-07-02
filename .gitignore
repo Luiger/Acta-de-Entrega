@@ -1,0 +1,33 @@
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Dependency directories
+# These are typically handled by the individual project .gitignores,
+# but can be added here as a fallback.
+# node_modules/
+
+# Build output
+# These are also typically handled by individual project .gitignores.
+# /build
+# /dist
+.env
+service-account.json
