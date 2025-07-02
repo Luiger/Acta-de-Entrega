@@ -1,10 +1,10 @@
 import { google } from 'googleapis';
-import { SPREADSHEET_ID, GOOGLE_CREDENTIALS } from '@env';
+import { googleCredentials, spreadsheetId } from '../store/constant';
 
 const scopes = ['https://www.googleapis.com/auth/spreadsheets'];
 
 const auth = new google.auth.GoogleAuth({
-  credentials: JSON.parse(GOOGLE_CREDENTIALS),
+  credentials: JSON.parse(googleCredentials),
   scopes,
 });
 
@@ -13,7 +13,7 @@ const sheets = google.sheets({ version: 'v4', auth });
 export const getSheetData = async (sheetName: string) => {
   try {
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: SPREADSHEET_ID,
+      spreadsheetId: spreadsheetId,
       range: sheetName,
     });
     return response.data.values;
@@ -26,7 +26,7 @@ export const getSheetData = async (sheetName: string) => {
 export const appendSheetData = async (sheetName: string, rowData: any[]) => {
   try {
     const response = await sheets.spreadsheets.values.append({
-      spreadsheetId: SPREADSHEET_ID,
+      spreadsheetId: spreadsheetId,
       range: sheetName,
       valueInputOption: 'USER_ENTERED',
       requestBody: {
